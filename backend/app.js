@@ -7,16 +7,20 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv').config()
 
+
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 
 
 // LOGIN 
 
+
 app.post('/api/login', async (req, res) =>{
     try{
         const {email, senha} = req.body
+
         const usuario = await db('usuarios').select('*').where({email}).first()
 
         if (!usuario){
@@ -33,21 +37,22 @@ app.post('/api/login', async (req, res) =>{
             })
         } 
 
-        const payload = {userid: 706}
+        const payload = {userid: usuario.id}
         const key = process.env.TOKEN;
         const token = jwt.sign(payload, key, {expiresIn: '20m'});
 
-        res.status(200).json({
+        return res.status(200).json({
+            token: token,
             mensagem: "Login realizado com sucesso!"
         })
 
-    
     } catch(error){
-        res.status(400).json({
+        res.status(400).json({        
             erro: error.message
         })
     }
 })
+
 
 // USUARIOS
 

@@ -8,10 +8,10 @@ function logout() {
     }
 }
 
-if (!localStorage.getItem('token')){
-    alert('Faça o login novamente.')
-    window.location.href = 'index.html'
-}
+// if (!localStorage.getItem('token')){
+//     alert('Faça o login novamente.')
+//     window.location.href = 'index.html'
+// }
 
 const sideBarToggle = document.getElementById('sideBarToggle')
 const sidebar = document.getElementById('sidebar')

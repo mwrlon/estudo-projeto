@@ -8,15 +8,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="min-h-screen w-screen flex justify-center items-center bg-linear-to-r from-sky-950 via-indigo-950 to-slate-900">
-    <div class="flex flex-col w-96 h-112 justify-center items-center bg-slate-100 shadow-xl shadow-white/10 rounded-2xl ">
-        <p class="flex self-center text-4xl text-slate-800 my-8 font-bold">Wedding Pass</p>
-        <form action="http://localhost:3000/api/login" method="post" class="flex flex-col">
-            <label for="campo-email" class="text-slate-700 text-sm mb-4 py-2">EMAIL</label>
-            <input type="email" name="email" id="email" placeholder="Digite seu email..." class="mb-4 p-2 border-b-1 border-indigo-800 bg-slate-200/60">
-            <label for="campo-senha" class="text-slate-700 text-sm mb-4 py-2">SENHA</label>
-            <input type="password" name="senha" id="senha" placeholder="Digite sua senha... " class="mb-4 p-2 border-b-1 border-indigo-800 bg-slate-200/60">
-            <button type="submit" class="bg-indigo-800 text-white rounded-2xl p-4 px-6 mt-4 hover:bg-indigo-900 cursor-pointer">Entrar</button>            
+    <div class="flex flex-col w-96 sm:w-112 h-112 sm:h-128 justify-center items-center bg-slate-100 shadow-xl shadow-white/10 rounded-2xl ">
+        <p class="flex self-center text-4xl text-slate-800 mb-8 font-bold">Wedding Pass</p>
+        <form action="http://localhost:3000/api/login" method="post" class="flex flex-col sm:w-sm">
+            <label for="campo-email" class="text-slate-700 text-sm mb-2">EMAIL</label>
+            <input type="email" name="email" id="email" placeholder="Digite seu email..." class="mb-4 p-3 bg-slate-200/60">
+            <label for="campo-senha" class="text-slate-700 text-sm mt-8 mb-2">SENHA</label>
+            <input type="password" name="senha" id="senha" placeholder="Digite sua senha... " class="mb-4 p-3 bg-slate-200/60">
+            <button type="submit" onclick="login(event)" class="bg-indigo-800 text-white rounded-2xl py-6 px-6 mt-10 hover:bg-indigo-900 cursor-pointer">Entrar</button>
         </form>
-    </div>  
+
+    </div> 
+      <script src="./scripts/index.js"></script>     
 </body>
 </html>
